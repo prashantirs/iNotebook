@@ -7,8 +7,14 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+//Making Get Request
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello Prashant')
+})
+
+//Making another Get Request
+app.get('/next_page', (req, res) => {
+  res.send('It is next page')
 })
 
 app.listen(port, () => {
