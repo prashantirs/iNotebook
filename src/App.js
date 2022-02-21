@@ -4,22 +4,25 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
+import NoteState from "./context/notes/NoteState";
 
 function App() {
   return (
     <>
+    <NoteState>
       <Router>
         <Navbar />
         
         {/* comment */
         /* <Switch> is replaced by <Routes> */}
-
-        <Routes>
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/about" element={<About />} />
-        </Routes>
+        <div className="container">
+          <Routes>
+          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/about" element={<About />} />
+          </Routes>
+        </div>
       </Router>
-
+    </NoteState>
 
 
     </>
