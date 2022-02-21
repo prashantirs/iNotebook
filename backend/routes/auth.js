@@ -2,6 +2,8 @@ const express=require('express');
 const User = require('../models/User');
 const router=express.Router();
 
+const fetchuser=require('../middleware/fetchuser');
+
 //bcrypt npm package for salting in password
 const bcrypt = require('bcryptjs');
 
@@ -109,6 +111,22 @@ router.post('/login',[
         }
 
 
+})
+
+
+//ROUTE:3
+// Get a user using post "api/auth/getuser" request  Login require
+router.post('/getuser',fetchuser,async (req,res)=>{
+
+    try {
+        userId=req.user.id;
+        let user=await User.findById(userId).select("-password")
+        res.send(user); //res is response
+
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Some error occured");
+    }
 })
 
 module.exports=router;
