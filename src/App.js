@@ -7,6 +7,8 @@ import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
 import NoteState from "./context/notes/NoteState";
 import Alert from "./components/Alert";
 
+// Not connected to backend it is reusable
+
 function App() {
   return (
     <>
