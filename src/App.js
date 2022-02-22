@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
 import NoteState from "./context/notes/NoteState";
+import Alert from "./components/Alert";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
     <NoteState>
       <Router>
         <Navbar />
-        
+        <Alert message="Alert is working"/>
         {/* comment */
         /* <Switch> is replaced by <Routes> */}
         <div className="container">
