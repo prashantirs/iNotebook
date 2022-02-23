@@ -69,7 +69,7 @@ const Signup = (props) => {
 
 
 
-            {/* New form added */}
+            {/* New form  added */}
             {/* <div className=''>
                 <h2 className='text-center signup-head mb-0'>Signup To Use iNoteBook</h2>
                 <div className="form body-signup">
