@@ -26,16 +26,17 @@ router.post('/createuser',[
     body('password').isLength({ min: 5 })
     
 ],async(req,res)=>{
+    let success=false;
     //any error occured send bad request --->express validator
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({success, errors: errors.array() });
     }
     //check weather user with this email exists or not
     try {
         let user=await User.findOne({email:req.body.email});
         if(user){
-            return res.status(400).json({ errors: "Sorry a user already exist" });
+            return res.status(400).json({success, errors: "Sorry a user already exist" });
         }
 
         const salt = await bcrypt.genSalt(10);
@@ -54,7 +55,8 @@ router.post('/createuser',[
           }
           const authtoken=jwt.sign(data,JWT_SECRET);
         //   res.send(user);
-        res.json(authtoken);
+        success=true;
+        res.json({success,authtoken});
 
     } catch (error) {
         console.error(error.message);
@@ -75,6 +77,7 @@ router.post('/login',[
     body('password').exists(),
     
 ],async(req,res)=>{
+    let success=false;
      //any error occured send bad request --->express validator
      const errors = validationResult(req);
      if (!errors.isEmpty()) {
@@ -88,12 +91,13 @@ router.post('/login',[
             let user=await User.findOne({email});
             //if user dont exist
             if(!user){
-                return res.status(400).json({ errors: "Please enter correct login credentials" });
+                return res.status(400).json({ success,errors: "Please enter correct login credentials" });
             }
     
             const passwordCompare = await bcrypt.compare(password,user.password);
             if(!passwordCompare){
-                return res.status(400).json({ errors: "Please enter correct login credentials" }); 
+                
+                return res.status(400).json({ success,errors: "Please enter correct login credentials" }); 
             }
           
               const data={
@@ -102,8 +106,8 @@ router.post('/login',[
                   }
               }
               const authtoken=jwt.sign(data,JWT_SECRET);
-            
-            res.json(authtoken);
+            success=true;
+            res.json({success,authtoken});
     
         } catch (error) {
             console.error(error.message);

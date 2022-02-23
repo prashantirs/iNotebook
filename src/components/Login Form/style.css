@@ -1,0 +1,91 @@
+.body-signup{
+    /* color: black; */
+    background-image: url(image/1-sea-beach-sand-wallpaper.1366.jpg);
+    /* width: 1232px; */
+
+}
+
+.signup-head{
+    position: relative;
+    bottom: 2rem;
+}
+
+
+
+
+.form{
+    background-color: black;
+    width: 70%;
+    height: 30rem;
+    margin: auto;
+    opacity: 0.9;
+    border-radius: 30px;
+    position: relative;
+    top: 0rem;
+    
+    
+
+}
+
+.prashant-img{
+    width: 6rem;
+    height: 6rem;
+    position: relative;
+    top: -2rem;
+    left:21rem;
+    
+}
+
+.form-class{
+    
+   position: relative;
+   top: 1rem;
+}
+
+.inside-form{  
+    margin-top: 2rem;
+    margin-left: 1rem;
+    border: 1px solid rgb(48, 62, 78);
+  
+    border-style: none;
+    border-bottom-style: solid;
+    background-color: transparent;
+    color: #fff;
+    opacity: 0.9;
+    width: 90%;
+    height: 1.3rem;
+    outline: none;
+  
+
+  
+}
+input::placeholder{
+    margin-left: 10rem;
+color:#FFF;
+/* opacity: 0.8; */
+
+}
+
+.inside-form.button{
+    background-color: rgb(37, 89, 148);
+    width: 10rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 30px;
+    position: relative;
+    top: 2rem;
+    
+}
+
+.button:hover{
+    background-color: rgb(68, 91, 117);
+}
+
+@media (max-width:1200px){
+
+    .form{
+        width: 70%;
+    }
+  
+    
+}

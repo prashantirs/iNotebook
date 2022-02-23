@@ -11,6 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.body-signup {
+  height: 100%;
+}
 
 i{
   cursor: pointer;

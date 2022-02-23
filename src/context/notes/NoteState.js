@@ -14,8 +14,7 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxMTRlMjdiY2YxOGExODkwMGVkYTk4In0sImlhdCI6MTY0NTM4MDg3OX0.ycHwi-t6cLX78vVyKkgFxPEGPwxeG6lYXbdxRo9Jlm0",
+        "auth-token":localStorage.getItem('token')
       }
     });
     const json =await response.json();
@@ -30,27 +29,18 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxMTRlMjdiY2YxOGExODkwMGVkYTk4In0sImlhdCI6MTY0NTM4MDg3OX0.ycHwi-t6cLX78vVyKkgFxPEGPwxeG6lYXbdxRo9Jlm0",
+        "auth-token":localStorage.getItem('token')
       },
 
       body: JSON.stringify({title, description, tag}),
     });
-    const json = await response.json();
+    const note = await response.json();
+    setNotes(notes.concat(note));
     
     //check
-    console.log(json);
+    // console.log(note);
     
-    const note = {
-      _id: "62128fc1c096325976e2e9bd",
-      user: "62114e27bcf18a18900eda98",
-      title: title,
-      description: description,
-      tag: tag,
-      date: "2022-02-20T19:00:17.298Z",
-      __v: 0,
-    };
-    setNotes(notes.concat(note));
+    // const note =note;
   };
 
   //Delete note
@@ -60,14 +50,13 @@ const NoteState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxMTRlMjdiY2YxOGExODkwMGVkYTk4In0sImlhdCI6MTY0NTM4MDg3OX0.ycHwi-t6cLX78vVyKkgFxPEGPwxeG6lYXbdxRo9Jlm0",
+        "auth-token":localStorage.getItem('token')
       },
     });
     const json = await response.json();
 
     //check
-    console.log(json)
+    // console.log(json)
 
     const newNote = notes.filter((note) => {
       return note._id !== id;
@@ -82,8 +71,7 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxMTRlMjdiY2YxOGExODkwMGVkYTk4In0sImlhdCI6MTY0NTM4MDg3OX0.ycHwi-t6cLX78vVyKkgFxPEGPwxeG6lYXbdxRo9Jlm0",
+        "auth-token":localStorage.getItem('token')
       },
 
       body: JSON.stringify({title, description, tag}),
