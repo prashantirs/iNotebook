@@ -69,27 +69,7 @@ const Signup = (props) => {
 
 
 
-            {/* New form  added */}
-            {/* <div className=''>
-                <h2 className='text-center signup-head mb-0'>Signup To Use iNoteBook</h2>
-                <div className="form body-signup">
-                    <img src={logo} alt="Logo" className="prashant-img" />
-                    <form className="form-class" onSubmit={handelSubmit}>
-
-                        <input className="inside-form" type="text" id="name" name="name" onChange={onChange} placeholder="Enter Username" />
-                        <br />
-                        <input className="inside-form" type="email" id="email" name="email" onChange={onChange} placeholder="Enter Email" />
-                        <br />
-                        <input className="inside-form" type="password" id="password" name="password"  minLength={5} required onChange={onChange} placeholder="Enter Password" />
-                        <br />
-                        <input className="inside-form" type="password" id="cpassword" name="cpassword" minLength={5} required  onChange={onChange} placeholder="Confirm Password" />
-                        <br />
-                        <div class="text-center">
-                        <button className="inside-form button " type="submit">Signup</button>
-                        </div>
-                    </form>
-                </div>
-            </div> */}
+          
         </>
     )
 }
